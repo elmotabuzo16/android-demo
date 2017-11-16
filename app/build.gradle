@@ -19,7 +19,7 @@ android {
   }
 
   signingConfigs{
-    unsigned{
+    release {
         storePassword = ""
         keyAlias = ""
         keyPassword = ""
@@ -31,7 +31,7 @@ android {
       testCoverageEnabled true
     }
     release{
-        signingConfig signingConfigs.unsigned
+        signingConfig signingConfigs.release
     }
   }
 
