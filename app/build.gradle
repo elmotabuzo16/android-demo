@@ -14,16 +14,27 @@ android {
     testInstrumentationRunner 'com.sqisland.android.test_demo.MockTestRunner'
   }
 
-  buildTypes {
-    debug {
-      testCoverageEnabled true
-      signingConfig null
-    }
-  }
-
   packagingOptions {
     exclude 'LICENSE.txt'
   }
+
+  signingConfigs{
+    unsigned{
+        storePassword = ""
+        keyAlias = ""
+        keyPassword = ""
+    }
+  }
+
+  buildTypes {
+    debug {
+      testCoverageEnabled true
+    }
+    release{
+        signingConfig signingConfigs.unsigned
+    }
+  }
+
 }
 
 final DAGGER_VERSION = '2.11'
