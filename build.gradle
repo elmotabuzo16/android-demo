@@ -15,3 +15,17 @@ allprojects {
     jcenter()
   }
 }
+
+signingConfigs{
+    unsigned{
+        storePassword = ""
+        keyAlias = ""
+        keyPassword = ""
+    }
+}
+
+buildTypes{
+    release{
+        signingConfig signingConfigs.unsigned
+    }
+}
