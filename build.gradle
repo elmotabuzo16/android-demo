@@ -16,16 +16,16 @@ allprojects {
   }
 }
 
-signingConfigs{
-    unsigned{
-        storePassword = ""
-        keyAlias = ""
-        keyPassword = ""
-    }
-}
+android {
+  signingConfigs {
+    release { ... }
+  }
 
-buildTypes{
-    release{
-        signingConfig signingConfigs.unsigned
+  productFlavors {
+    signed { 
+      signingConfig signingConfigs.release // defined above
     }
+
+    unsigned {} // use the default options
+  }
 }
